@@ -19,8 +19,8 @@ jobs:
         run: |
           mkdir -p ~/.config/PlexTractSync
           cd ~/.config/PlexTractSync
-          echo '${{ secrets.ENVFILE }}' >> .env
-          echo '${{ secrets.SERVERS }}' >> .servers.yml
-          echo '${{ secrets.PYTRAKT }}' >> .pytrakt.json
+          echo -e '${{ secrets.ENVFILE }}' >> .env
+          echo -e '${{ secrets.SERVERS }}' >> .servers.yml
+          echo -e '${{ secrets.PYTRAKT }}' >> .pytrakt.json
       - name: sync
         run: plextraktsync sync
