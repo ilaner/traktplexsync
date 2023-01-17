@@ -23,4 +23,4 @@ jobs:
           echo ${{ secrets.SERVERS }} >> .servers.yml
           echo ${{ secrets.PYTRAKT }} >> .pytrakt.json
       - name: sync
-        run: PlexTraktSync sync
+        run: plextraktsync sync
