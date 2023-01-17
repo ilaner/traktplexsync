@@ -1,0 +1,25 @@
+name: sync
+
+on:
+  schedule:
+    # Runs every two hours" (see https://crontab.guru)
+    - cron: '0 */2 * * *'
+  
+
+jobs:
+  sync:
+    name: sync
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install trakplexsync
+        run: pipx install PlexTraktSync
+
+      - name: Add secrets to config
+        run: |
+          mkdir -p ~/.config/PlexTractSync
+          cd ~/.config/PlexTractSync
+          echo ${{ secrets.ENVFILE }} >> .env
+          echo ${{ secrets.SERVERS }} >> .servers.yml
+          echo ${{ secrets.PYTRAKT }} >> .pytrakt.json
+      - name: sync
+        run: PlexTraktSync sync
