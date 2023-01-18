@@ -26,7 +26,7 @@ jobs:
         id: create-json
         uses: jsdaniell/create-json@v1.2.2
         with:
-         name: .config/PlexTraktSync/.pytrakt.json
+         name: /home/runner/.config/PlexTraktSync/.pytrakt.json
          json: ${{ secrets.PYTRAKT }}
 
       - name: sync
