@@ -20,7 +20,7 @@ jobs:
           mkdir -p /home/runner/.config/PlexTraktSync
           cd /home/runner/.config/PlexTraktSync
           echo -e "${{ secrets.ENVFILE }}" >> .env
-          echo -e "${{ secrets.SERVERS }}" >> .servers.yml
+          echo -e "${{ secrets.SERVERS }}" >> servers.yml
           echo -e "${{ secrets.PYTRAKT }}" >> .pytrakt.json
           echo -e "${{ secrets.CONFIG }} " >> config.yml
       - name: sync
