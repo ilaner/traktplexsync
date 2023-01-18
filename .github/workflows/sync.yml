@@ -24,4 +24,5 @@ jobs:
           echo ${{ secrets.PYTRAKT }} >> .pytrakt.json
       - name: sync
         run: |
+          cat /home/runner/.config/PlexTraktSync/.pytrakt.json
           plextraktsync sync
