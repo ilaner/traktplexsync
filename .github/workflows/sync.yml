@@ -17,7 +17,7 @@ jobs:
 
       - name: Add secrets to config
         run: |
-          mkdir -p /home/runner/.config/PlexTractSync
+          mkdir -p /home/runner/.config/PlexTraktSync
           cd /home/runner/.config/PlexTractSync
           echo -e "${{ secrets.ENVFILE }}" >> .env
           echo -e "${{ secrets.SERVERS }}" >> .servers.yml
