@@ -24,4 +24,6 @@ jobs:
           echo -e "${{ secrets.PYTRAKT }}" >> .pytrakt.json
           echo -e "${{ secrets.CONFIG }} " >> config.yml
       - name: sync
-        run: plextraktsync sync
+        run: |
+          cat /home/runner/.config/PlexTraktSync/servers.yml
+          plextraktsync sync
