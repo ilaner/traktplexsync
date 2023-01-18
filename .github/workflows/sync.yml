@@ -24,11 +24,11 @@ jobs:
       
       - name: create-json
         id: create-json
-        uses: jsdaniell/create-json@v1.2.2
+        uses: schdck/create-env-json@v1
         with:
          name: .pytrakt.json
-         json: ${{ secrets.PYTRAKT }}
-         dir: /home/runner/.config/PlexTraktSync
+         super-secret: ${{ secrets.PYTRAKT }}
       - name: sync
         run: |
+          cp ${{ steps.create-env.outputs.full-path }} /home/runner/.config/PlexTraktSync/.pytrakt.json 
           plextraktsync sync
