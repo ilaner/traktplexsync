@@ -21,7 +21,7 @@ jobs:
           cd /home/runner/.config/PlexTraktSync
           echo "${{ secrets.ENVFILE }}" >> .env
           echo "${{ secrets.SERVERS }}" >> servers.yml
-          echo "${{ secrets.PYTRAKT }}" >> .pytrakt.json
+          echo ${{ secrets.PYTRAKT }} >> .pytrakt.json
       - name: sync
         run: |
           plextraktsync sync
