@@ -21,7 +21,14 @@ jobs:
           cd /home/runner/.config/PlexTraktSync
           echo "${{ secrets.ENVFILE }}" >> .env
           echo "${{ secrets.SERVERS }}" >> servers.yml
-          echo ${{ secrets.PYTRAKT }} >> .pytrakt.json
+      
+      - name: create-json
+        id: create-json
+        uses: jsdaniell/create-json@v1.2.2
+        with:
+         name: .pytrakt.json
+         json: ${{ secrets.PYTRAKT }}
+
       - name: sync
         run: |
           cat /home/runner/.config/PlexTraktSync/.pytrakt.json
