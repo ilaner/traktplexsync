@@ -17,10 +17,11 @@ jobs:
 
       - name: Add secrets to config
         run: |
-          mkdir -p ~/.config/PlexTractSync
-          cd ~/.config/PlexTractSync
+          mkdir -p /home/runner/.config/PlexTractSync
+          cd /home/runner/.config/PlexTractSync
           echo -e "${{ secrets.ENVFILE }}" >> .env
           echo -e "${{ secrets.SERVERS }}" >> .servers.yml
           echo -e "${{ secrets.PYTRAKT }}" >> .pytrakt.json
+          echo -e "${{ secrets.CONFIG }} " >> config.yml
       - name: sync
         run: plextraktsync sync
